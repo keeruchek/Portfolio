@@ -1,15 +1,78 @@
 /* Fonts and global */
-body, html {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: 'Source Code Pro', monospace;
-    scroll-behavior: smooth;
     background: #1A1B1E;
     color: #F5F5F5;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-y;
 }
 
-/* Section full-screen */
+/* Animated Background Logos */
+.animated-logo {
+    position: fixed;
+    font-size: 4em;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+    font-weight: 700;
+    font-family: 'Source Code Pro', monospace;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    will-change: transform, left, top;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.logo-html {
+    color: #E34C26;
+}
+
+.logo-js {
+    color: #F7DF1E;
+}
+
+.logo-docker {
+    color: #2496ED;
+}
+
+.logo-mongodb {
+    color: #47A248;
+}
+
+.logo-aws {
+    color: #FF9900;
+}
+
+.logo-python {
+    color: #3776AB;
+}
+
+/* Ensure content is above animations */
 .section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Section full-screen with smooth transitions */
+.section {
+    min-height: 100vh;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -17,40 +80,102 @@ body, html {
     justify-content: space-between;
     padding: 50px;
     box-sizing: border-box;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    position: relative;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Intro Section */
-#intro {
-    background: linear-gradient(135deg, #35383B 0%, #5B5E61 100%);
+@media (max-width: 768px) {
+    .section {
+        height: auto;
+        min-height: 100vh;
+    }
 }
+
+/* Enable smooth scroll snap on html */
+html {
+    scroll-snap-type: y proximity;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Intro Section with Ombre Background */
+#intro {
+    background: linear-gradient(180deg, 
+        #1A1B1E 0%, 
+        #2A2B2E 15%, 
+        #35383B 35%, 
+        #4A4D50 55%, 
+        #5B5E61 75%, 
+        #35383B 90%, 
+        #1A1B1E 100%);
+    background-attachment: fixed;
+}
+
 .intro-left {
     flex: 1;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .intro-left h1 {
-    font-size: 3em;
-    line-height: 1.3;
+    font-size: 4.5em;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #F5F5F5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 .resume-btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
+    margin-top: 30px;
+    padding: 15px 35px;
     font-size: 1.1em;
+    font-weight: 600;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #5B5E61;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    width: fit-content;
+    font-family: 'Source Code Pro', monospace;
 }
+
 .resume-btn:hover {
-    background-color: #0056b3;
+    background-color: #35383B;
+    border-color: #5B5E61;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
 .intro-right {
     flex: 1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .intro-pic {
-    width: 350px;
-    border-radius: 10px;
-    border: 3px solid #555;
+    width: 450px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.intro-pic:hover {
+    transform: scale(1.02);
 }
 
 /* Skills Section */
@@ -59,64 +184,400 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 80px 50px;
 }
+
 .skills-left {
     flex: 1;
-    padding-right: 30px;
+    padding-right: 60px;
+    max-width: 600px;
 }
+
 .skills-left h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #F5F5F5;
+    font-weight: 700;
 }
+
 .skills-left p {
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 20px;
+    line-height: 1.8;
     font-size: 1.1em;
+    color: #E0E0E0;
 }
+
 .skills-right {
     flex: 1;
     position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#skills-animation {
+
+#tag-cloud-container {
     width: 100%;
-    height: 400px;
+    height: 100%;
+    position: relative;
+    perspective: 1000px;
+}
+
+.tag-cloud-tag {
+    position: absolute;
+    padding: 0;
+    background: transparent;
+    color: #F5F5F5;
+    border-radius: 0;
+    font-size: 1em;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: default;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.tag-cloud-tag:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    color: #E0E0E0;
 }
 
 /* Work Experience, Projects, Certifications */
+#experience, #projects, #certifications {
+    background: #1A1B1E;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+}
+
+#experience h2, #projects h2, #certifications h2 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: #F5F5F5;
+    font-weight: 700;
+    text-align: center;
+}
+
 .dropdown-section {
     width: 100%;
-    margin-top: 30px;
+    max-width: 900px;
+    margin: 0 auto;
 }
-.dropdown-btn, .sub-dropdown-btn {
+
+.dropdown-btn {
     background-color: #5B5E61;
     color: white;
-    padding: 12px 20px;
+    padding: 18px 25px;
     border: none;
     cursor: pointer;
     width: 100%;
     text-align: left;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-.dropdown-btn:hover, .sub-dropdown-btn:hover {
-    background-color: #007BFF;
-}
-.dropdown-content, .sub-dropdown-content {
-    display: none;
-    background-color: #1A1B1E;
-    padding: 15px 20px;
-    border-radius: 5px;
+    font-size: 1.2em;
     margin-bottom: 10px;
-}
-.sub-dropdown {
-    margin-top: 5px;
-}
-h4 {
-    margin: 10px 0 5px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid transparent;
 }
 
-/* Smooth transition effect for dropdown */
-.sub-dropdown-content, .dropdown-content {
-    transition: all 0.3s ease-in-out;
+.dropdown-btn:hover {
+    background-color: #35383B;
+    border-color: #5B5E61;
+    transform: translateX(5px);
+}
+
+.dropdown-btn.active {
+    background-color: #35383B;
+    border-color: #5B5E61;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+}
+
+.dropdown-btn.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #35383B;
+    padding: 25px 30px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #5B5E61;
+    animation: slideDown 0.3s ease;
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #1A1B1E;
+    border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #5B5E61;
+    border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: #35383B;
+}
+
+/* Mobile scrollbar styling */
+@media (max-width: 768px) {
+    .dropdown-content {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #5B5E61 #1A1B1E;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-content p {
+    margin-bottom: 12px;
+    line-height: 1.7;
+    color: #E0E0E0;
+}
+
+.dropdown-content h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #F5F5F5;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.dropdown-content h4:first-child {
+    margin-top: 0;
+}
+
+.dropdown-content ul {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.dropdown-content li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    color: #E0E0E0;
+}
+
+.dropdown-content a {
+    color: #5B5E61;
+    text-decoration: none;
+    border-bottom: 1px solid #5B5E61;
+    transition: color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    color: #F5F5F5;
+    border-bottom-color: #F5F5F5;
+}
+
+/* Contact Section */
+#contact {
+    background: #35383B;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-content {
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: #F5F5F5;
+    font-weight: 700;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 40px;
+    background-color: #5B5E61;
+    color: #F5F5F5;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 150px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.contact-link:hover {
+    background-color: #35383B;
+    border-color: #5B5E61;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.contact-link span:last-child {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .intro-left h1 {
+        font-size: 3.5em;
+    }
+    
+    .intro-pic {
+        width: 350px;
+        height: 500px;
+    }
+    
+    #skills {
+        flex-direction: column;
+        padding: 60px 30px;
+    }
+    
+    .skills-left {
+        padding-right: 0;
+        margin-bottom: 40px;
+        max-width: 100%;
+    }
+    
+    .skills-right {
+        width: 100%;
+        height: 400px;
+    }
+    
+    .contact-links {
+        gap: 20px;
+    }
+    
+    .contact-link {
+        min-width: 120px;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 30px 20px;
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+    }
+    
+    .intro-left {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .intro-left h1 {
+        font-size: 2.2em;
+        line-height: 1.3;
+    }
+    
+    .intro-pic {
+        width: 250px;
+        height: 350px;
+        max-width: 90%;
+    }
+    
+    .resume-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    
+    .skills-left h2,
+    #experience h2,
+    #projects h2,
+    #certifications h2,
+    #contact h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    
+    .skills-left p {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    
+    .skills-right {
+        height: 300px;
+    }
+    
+    .dropdown-btn {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+    
+    .dropdown-content {
+        padding: 20px;
+        max-height: 60vh;
+        font-size: 0.9em;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .contact-link {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 25px;
+    }
+    
+    .contact-icon {
+        font-size: 2em;
+    }
+    
+    /* Reduce animation opacity on mobile for better visibility */
+    .animated-logo {
+        opacity: 0.12;
+        font-size: 2.5em;
+    }
+    
+    /* Improve touch targets */
+    .dropdown-btn,
+    .resume-btn,
+    .contact-link {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
 }
