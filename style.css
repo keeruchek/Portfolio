@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #555;
+}
+
+.contact {
+    font-size: 0.95em;
+    color: #555;
+}
+
+.dropdown-section {
+    margin-bottom: 20px;
+}
+
+.dropdown-btn, .sub-dropdown-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.dropdown-btn:hover, .sub-dropdown-btn:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-content, .sub-dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.sub-dropdown {
+    margin-top: 5px;
+}
+
+h4 {
+    margin: 10px 0 5px 0;
+}
