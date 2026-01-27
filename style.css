@@ -1,4 +1,4 @@
-/* Fonts and global */
+/* Fonts and Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -23,54 +24,7 @@ body {
     touch-action: pan-y;
 }
 
-/* Animated Background Logos */
-.animated-logo {
-    position: fixed;
-    font-size: 4em;
-    opacity: 0.2;
-    pointer-events: none;
-    z-index: 0;
-    user-select: none;
-    font-weight: 700;
-    font-family: 'Source Code Pro', monospace;
-    transition: opacity 0.3s ease;
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-    will-change: transform, left, top;
-    display: block !important;
-    visibility: visible !important;
-}
-
-.logo-html {
-    color: #E34C26;
-}
-
-.logo-js {
-    color: #F7DF1E;
-}
-
-.logo-docker {
-    color: #2496ED;
-}
-
-.logo-mongodb {
-    color: #47A248;
-}
-
-.logo-aws {
-    color: #FF9900;
-}
-
-.logo-python {
-    color: #3776AB;
-}
-
-/* Ensure content is above animations */
-.section {
-    position: relative;
-    z-index: 1;
-}
-
-/* Section full-screen with smooth transitions */
+/* Section Styles */
 .section {
     min-height: 100vh;
     height: 100vh;
@@ -84,18 +38,6 @@ body {
     scroll-snap-stop: normal;
     position: relative;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (max-width: 768px) {
-    .section {
-        height: auto;
-        min-height: 100vh;
-    }
-}
-
-/* Enable smooth scroll snap on html */
-html {
-    scroll-snap-type: y proximity;
 }
 
 .section-content {
@@ -337,15 +279,6 @@ html {
     background: #35383B;
 }
 
-/* Mobile scrollbar styling */
-@media (max-width: 768px) {
-    .dropdown-content {
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: #5B5E61 #1A1B1E;
-    }
-}
-
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -549,6 +482,9 @@ html {
         padding: 20px;
         max-height: 60vh;
         font-size: 0.9em;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #5B5E61 #1A1B1E;
     }
     
     .contact-links {
@@ -565,12 +501,6 @@ html {
     
     .contact-icon {
         font-size: 2em;
-    }
-    
-    /* Reduce animation opacity on mobile for better visibility */
-    .animated-logo {
-        opacity: 0.12;
-        font-size: 2.5em;
     }
     
     /* Improve touch targets */
