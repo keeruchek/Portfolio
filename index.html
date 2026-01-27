@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Keeravani Chekuri Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,8 +13,8 @@
     <!-- Page Sections Container -->
     <div class="section" id="intro">
         <div class="intro-left">
-            <h1>Hi, I'm <br> Keeravani <br> &gt; Lead AI Engineer</h1>
-            <a href="files/keeravani_resume.pdf" class="resume-btn" download>Download Resume</a>
+            <h1>Hi I'm Keeravani <br>&gt; Lead AI Engineer</h1>
+            <a href="Files/Keeravani_resume.pdf" class="resume-btn" download>Download Resume</a>
         </div>
         <div class="intro-right">
             <img src="Images/image.jpg" alt="Keeravani Chekuri" class="intro-pic">
@@ -23,40 +25,139 @@
     <div class="section" id="skills">
         <div class="skills-left">
             <h2>Skills</h2>
-            <p>I specialize in AI, LLM systems, MLOps, cloud infrastructure, and full-stack engineering. I architect pipelines, build scalable AI systems, and implement secure cloud solutions for production-grade applications.</p>
-            <p>With expertise in Python, Spark, AWS, and modern ML frameworks, I design data-driven systems and collaborate across engineering, product, and analytics teams to deliver measurable impact.</p>
+            <p>I specialize in AI, LLM systems, MLOps, cloud infrastructure, and full-stack engineering. I architect pipelines, build scalable AI systems, and implement secure cloud solutions for production-grade applications. My work focuses on creating robust, efficient systems that leverage cutting-edge technology to solve complex problems.</p>
+            <p>With expertise in Python, Spark, AWS, and modern ML frameworks, I design data-driven systems and collaborate across engineering, product, and analytics teams to deliver measurable impact. I continuously stay updated with the latest advancements in AI and cloud technologies to ensure optimal solutions.</p>
         </div>
         <div class="skills-right">
-            <canvas id="skills-animation"></canvas>
+            <div id="tag-cloud-container"></div>
         </div>
     </div>
 
     <!-- Work Experience Section -->
     <div class="section" id="experience">
-        <h2>Work Experience</h2>
-        <div class="dropdown-section">
-            <!-- Experience items will be injected via JS or static HTML as before -->
+        <div class="section-content">
+            <h2>Work Experience</h2>
+            <div class="dropdown-section">
+                <button class="dropdown-btn">Founding Engineer & Lead AI Architect - Nexoraschool.ai <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Duration:</strong> Apr 2025 – Present</p>
+                    <p><strong>Location:</strong> Boston, MA</p>
+                    
+                    <h4>Skills / Tools Used</h4>
+                    <p>Python, FastAPI, JavaScript, HTML/CSS, AWS (EC2, Lambda, Glue, Redshift, Kinesis, Bedrock, CloudWatch, SNS, IAM, CloudFormation), Pinecone, LangChain, LangGraph, LlamalIndex, PromptLayer, MongoDB, Vector Databases, MLflow, GitHub Actions, CI/CD, Streamlit, Sentry</p>
+                    
+                    <h4>Collaboration & Leadership</h4>
+                    <p>Led frontend and backend engineering execution, unblocking developers, reviewing PRs, assigning deliverables, and enforcing sprint timelines. Presented technical demos to enterprise and school clients, directly contributing to customer onboarding and contract acquisition. Coordinated with directors to ensure AI safety guardrails and product alignment.</p>
+                    
+                    <h4>Learnings & Growth</h4>
+                    <p>Gained deep expertise in LLM pipelines, scalable AI system architecture, cloud infrastructure, and product-led AI delivery strategies. Mastered curriculum-aware RAG pipelines, reducing hallucinations and improving grade-aligned response accuracy. Developed full-stack edtech platform from inception to production, improving deployment frequency from weekly to daily releases.</p>
+                </div>
+
+                <button class="dropdown-btn">ML Data Engineer - Conflux Systems <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Duration:</strong> Jun 2023 – Mar 2025</p>
+                    <p><strong>Location:</strong> US</p>
+                    
+                    <h4>Skills / Tools Used</h4>
+                    <p>Python, SQL, PySpark, Apache Kafka, Apache Flink, Apache Spark, Spark Structured Streaming, Airflow, AWS (SageMaker, S3, ECS, Lambda, Glue, Kinesis, CloudWatch), Docker, Kubernetes, MLflow, Kubeflow, GitHub Actions, CI/CD, Snowflake, Athena, Tableau, TensorFlow, PyTorch, Scikit-learn</p>
+                    
+                    <h4>Collaboration & Leadership</h4>
+                    <p>Collaborated cross-functionally with data science, game engineering, DevOps, and product teams, accelerating ML feature integration into live production environments. Mentored junior engineers and reviewed ML/data engineering codebases, improving code quality, reproducibility, and system scalability standards.</p>
+                    
+                    <h4>Learnings & Growth</h4>
+                    <p>Developed expertise in real-time streaming pipelines, MLOps automation, and ML model deployment at scale. Built reusable feature pipelines and centralized feature stores, ensuring training-serving consistency. Optimized GPU/TPU resource utilization, reducing compute costs by 35% while improving throughput. Designed A/B experimentation frameworks for data-driven ML feature evaluation.</p>
+                </div>
+
+                <button class="dropdown-btn">Data Engineer Intern - Google SoS IT <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Duration:</strong> May 2019 – Jun 2019</p>
+                    <p><strong>Location:</strong> India</p>
+                    
+                    <h4>Skills / Tools Used</h4>
+                    <p>Python, AWS (Glue, Kinesis, Lambda, CloudWatch, SNS, CloudFormation, IAM), Snowflake, Power BI, Tableau</p>
+                    
+                    <h4>Collaboration & Leadership</h4>
+                    <p>Collaborated with compliance and security teams to enforce HIPAA-aligned data workflows, ensuring enterprise-wide regulatory compliance. Created access and audit dashboards providing real-time visibility into KPIs, policy violations, and audit trends for identity governance teams.</p>
+                    
+                    <h4>Learnings & Growth</h4>
+                    <p>Gained foundational experience in IAM event pipelines, automated batch ETL workflows, and compliance-focused data pipelines. Learned to build automated detection systems for access anomalies, integrating with CloudWatch and SNS alerts. Developed skills in infrastructure as code using CloudFormation for repeatable, auditable deployment templates.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Personal Projects Section -->
     <div class="section" id="projects">
-        <h2>Personal Projects</h2>
-        <div class="dropdown-section">
-            <!-- Projects items will be here -->
+        <div class="section-content">
+            <h2>Personal Projects</h2>
+            <div class="dropdown-section">
+                <button class="dropdown-btn">CleanTweets: NLP-Based Offensive Tweet Blocker <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Technologies:</strong> Python, Scikit-learn, Transformers, Twitter API, NLP</p>
+                    <p>Developed real-time NLP pipeline to classify tweets as positive, negative, neutral, or offensive, reducing exposure to toxic content for users. Trained and deployed machine learning models achieving >90% classification accuracy on offensive content detection. Integrated Twitter API for live data ingestion and classification, enabling automated moderation and content filtering in real time.</p>
+                    <p>Implemented real-time blocking and alert mechanisms, improving user experience and online safety metrics for simulated social media streams.</p>
+                </div>
+
+                <button class="dropdown-btn">RealtyAI: Neighborhood Comparison Assistant with RAG <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Technologies:</strong> Python, RAG, Streamlit, Vector Databases, LangChain, External APIs</p>
+                    <p>Developed AI-powered real estate insights assistant using RAG and Streamlit, enabling homebuyers to compare neighborhoods with real-time data on housing prices, safety, transit, schools, amenities, and diversity. Integrated vector databases and external APIs to retrieve and aggregate neighborhood metrics, ensuring accurate, up-to-date comparisons.</p>
+                    <p>Built side-by-side comparison engine, improving user decision-making efficiency for home selection. Implemented full-stack pipeline for data ingestion, embedding, and retrieval, enabling fast and reliable RAG responses in real time.</p>
+                </div>
+
+                <button class="dropdown-btn">SkyGuardAI: AI-Integrated ATC Tracker <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p><strong>Technologies:</strong> Python, PyTorch, Scikit-learn, Kafka, Spark Streaming, AWS (EC2, Lambda, S3, CloudWatch), RAG, Vector Databases, Streamlit, Power BI, Tableau, CI/CD</p>
+                    <p>Developed AI-powered air traffic control (ATC) tracking system to monitor aircraft positions, flight plans, and real-time telemetry, improving situational awareness for controllers. Engineered real-time data pipelines using Kafka, Spark Streaming, and AWS Kinesis, processing telemetry, radar inputs, and flight event streams with millisecond latency.</p>
+                    <p>Built predictive ML models for conflict detection, collision risk, and route optimization, enabling proactive safety alerts. Integrated RAG-based assistant for flight query resolution, leveraging vector databases to provide instant aircraft, weather, and airspace policy insights. Designed interactive dashboards visualizing aircraft trajectories, risk alerts, and airspace utilization in real time. Deployed end-to-end system on AWS with CI/CD pipelines for continuous monitoring, model updates, and high-availability deployment.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Certifications Section -->
     <div class="section" id="certifications">
-        <h2>Certifications</h2>
-        <div class="dropdown-section">
-            <!-- Certifications items will be here -->
+        <div class="section-content">
+            <h2>Certifications</h2>
+            <div class="dropdown-section">
+                <button class="dropdown-btn">AWS Certified Data Engineer - Associate <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p>Validated expertise in designing and implementing data engineering solutions on AWS cloud infrastructure. Demonstrates proficiency in building scalable data pipelines, managing data lakes, and implementing data processing architectures using AWS services.</p>
+                </div>
+
+                <button class="dropdown-btn">HIPAA Training - Compliance Group <span class="dropdown-arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <p>Completed comprehensive HIPAA compliance training, ensuring understanding of healthcare data privacy and security regulations. Validates ability to implement HIPAA-aligned data workflows and maintain regulatory compliance in healthcare and enterprise environments.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Smooth Scroll -->
+    <!-- Contact Section -->
+    <div class="section" id="contact">
+        <div class="section-content contact-content">
+            <h2>Contact Me</h2>
+            <div class="contact-links">
+                <a href="https://github.com/[your-github-username]" target="_blank" class="contact-link">
+                    <span class="contact-icon">📁</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:keeravani.chekuri@gmail.com" class="contact-link">
+                    <span class="contact-icon">✉️</span>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/keeravani-chekuri" target="_blank" class="contact-link">
+                    <span class="contact-icon">💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://medium.com/@keeruchekuri" target="_blank" class="contact-link">
+                    <span class="contact-icon">✍️</span>
+                    <span>Medium</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
-    <script src="tagcloud.min.js"></script> <!-- Use 3D tag cloud library for skill animation -->
 </body>
 </html>
