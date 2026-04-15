@@ -1,31 +1,54 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Keeravani Chekuri Portfolio</title>
+		<title>Keeravani Chekuri | AI Engineer Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/main.css" /></noscript>
 		<style>
-			/* Fix for Invisible Intro */
-			#intro { opacity: 1 !important; visibility: visible !important; }
+			/* Force Intro Visibility */
+			#intro { 
+				opacity: 1 !important; 
+				visibility: visible !important; 
+				display: flex !important;
+			}
 			
-			/* Side-by-Side About Me */
-			.about-container { display: flex; align-items: center; gap: 2rem; text-align: left; }
-			.about-text { flex: 1; }
-			.about-image { flex: 0 0 40%; }
-			.about-image img { width: 100%; border-radius: 8px; }
+			/* Project Hover Effect */
+			.image.fit { position: relative; display: block; overflow: hidden; }
+			.image.fit::after {
+				content: attr(data-title);
+				position: absolute;
+				top: 0; left: 0; width: 100%; height: 100%;
+				background: rgba(0, 0, 0, 0.8);
+				color: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				font-weight: bold;
+				text-align: center;
+				padding: 20px;
+			}
+			.image.fit:hover::after { opacity: 1; }
 
-			/* Side-by-Side Contact Section */
-			.contact-container { display: flex; gap: 4rem; margin-top: 2rem; }
-			.contact-form { flex: 1; }
-			.contact-info { flex: 0 0 35%; }
-			.contact-info ul { list-style: none; padding: 0; }
-			.contact-info li { margin-bottom: 1.5rem; }
-			.social-icons { display: flex; gap: 1rem; font-size: 1.5rem; }
+			/* Side-by-Side About Me */
+			.about-container { display: flex; align-items: center; gap: 3rem; text-align: left; }
+			.about-text { flex: 1; }
+			.about-image { flex: 0 0 35%; }
+			.about-image img { width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+
+			/* Side-by-Side Contact & Footer */
+			.contact-wrapper { display: flex; gap: 4rem; align-items: flex-start; }
+			.contact-form-side { flex: 1; }
+			.contact-info-side { flex: 0 0 30%; }
+			.contact-info-side ul { list-style: none; padding: 0; }
+			.contact-info-side li { margin-bottom: 2rem; }
+			.social-row { display: flex; gap: 1.5rem; font-size: 1.5rem; margin-top: 10px; }
 
 			@media screen and (max-width: 980px) {
-				.about-container, .contact-container { flex-direction: column; }
+				.about-container, .contact-wrapper { flex-direction: column; }
 				.about-image { order: -1; width: 100%; }
 			}
 		</style>
@@ -42,94 +65,7 @@
 			</div>
 
 			<header id="header">
-				<a href="index.html" class="logo">Portfolio</a>
-			</header>
-
-			<nav id="nav">
-				<ul class="links">
-					<li class="active"><a href="index.html">Portfolio</a></li>
-				</ul>
-			</nav>
-
-			<div id="main">
-				<article class="post featured">
-					<div class="about-container">
-						<div class="about-text">
-							<header class="major">
-								<h2>About Me</h2>
-							</header>
-							<p>I am an AI/ML Engineer with a career focused on taking complex data systems from '0 to 1' while maintaining high production standards. In my current role as Founding AI Engineer at Nexora AI, I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I previously worked as an ML Engineer where I focused on the 'MLOps' side of the house building end-to-end supervised learning pipelines and ELT processes. By combining this foundational ML infrastructure experience with my current focus on agentic LLM systems, I'm able to build AI products that are not just innovative, but scalable, secure, and cost-effective. [cite: 9, 10, 22, 24]</p>
-						</div>
-						<div class="about-image">
-							<img src="assets/images/image.jpg" alt="Keeravani Chekuri" />
-						</div>
-					</div>
-				</article>
-
-				<section class="posts">
-					<article>
-						<header><h2>NexoraAI - Multi-agent ed-tech platform</h2></header>
-						<p>I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I utilize LangGraph to build stateful agentic workflows that leverage checkpoints for crash recovery. [cite: 24, 31]</p>
-					</article>
-					<article>
-						<header><h2>conflux systems - MLOps for fraud detection</h2></header>
-						<p>I focused on the 'MLOps' side of the house—building end-to-end supervised learning pipelines and ELT processes using Airflow. [cite: 43, 54, 58]</p>
-					</article>
-				</section>
-
-				<section>
-					<header class="major">
-						<h2>Get In Touch</h2>
-					</header>
-					<div class="contact-container">
-						<div class="contact-form">
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field"><label>Name</label><input type="text" /></div>
-									<div class="field"><label>Email</label><input type="text" /></div>
-									<div class="field"><label>Message</label><textarea rows="3"></textarea></div>
-								</div>
-								<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
-							</form>
-						</div>
-						<div class="contact-info">
-							<ul>
-								<li><strong>Email:</strong><br /><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a> </li>
-								<li><strong>Location:</strong><br />Boston, MA </li>
-								<li><strong>Social:</strong>
-									<div class="social-icons">
-										<a href="https://linkedin.com/in/keeravani-chekuri/" class="icon brands fa-linkedin"></a>
-										<a href="https://github.com/keeruchek" class="icon brands fa-github"></a>
-										<a href="#" class="icon brands fa-medium"></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
-</html>			}
-		</style>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper" class="fade-in">
-			<div id="intro">
-				<h1>HI THERE !<br />
-				MY NAME IS KEERAVANI</h1>
-				<p>WELCOME TO MY PORTFOLIO. CHECK OUT SOME OF MY PROJECTS HERE AND LEARN MORE ABOUT ME.</p>
-				<ul class="actions">
-					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-				</ul>
-			</div>
-
-			<header id="header">
-				<a href="index.html" class="logo">Portfolio</a>
+				<a href="index.html" class="logo">AI Portfolio</a>
 			</header>
 
 			<nav id="nav">
@@ -144,99 +80,87 @@
 
 			<div id="main">
 				<article class="post featured">
-					<header class="major">
-						<h2>About Me</h2>
-						<p>I am an AI/ML Engineer with a career focused on taking complex data systems from '0 to 1' while maintaining high production standards[cite: 9]. In my current role as Founding AI Engineer at Nexora AI, I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI[cite: 10, 24]. I previously worked as an ML Engineer where I focused on the 'MLOps' side of the house building end-to-end supervised learning pipelines and ELT processes[cite: 54, 58]. By combining this foundational ML infrastructure experience with my current focus on agentic LLM systems, I'm able to build AI products that are not just innovative, but scalable, secure, and cost-effective[cite: 12, 31].</p>
-					</header>
-					<a href="#" class="image main"><img src="assets/images/image.JPG" alt="Keeravani Chekuri" /></a>
+					<div class="about-container">
+						<div class="about-text">
+							<header class="major">
+								<h2>About Me</h2>
+							</header>
+							<p>I am an AI/ML Engineer with a career focused on taking complex data systems from '0 to 1' while maintaining high production standards. In my current role as Founding AI Engineer at Nexora AI, I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I previously worked as an ML Engineer where I focused on the 'MLOps' side of the house building end-to-end supervised learning pipelines and ELT processes. By combining this foundational ML infrastructure experience with my current focus on agentic LLM systems, I'm able to build AI products that are not just innovative, but scalable, secure, and cost-effective.</p>
+						</div>
+						<div class="about-image">
+							<img src="assets/images/image.JPG" alt="Keeravani Chekuri" />
+						</div>
+					</div>
 				</article>
 
 				<section class="posts">
 					<article>
-						<header>
-							<h2>NexoraAI - Multi-agent ed-tech platform</h2>
-						</header>
+						<header><h2>NexoraAI - Multi-agent ed-tech platform</h2></header>
 						<a href="#" class="image fit" data-title="NexoraAI - Multi-agent ed-tech platform">
 							<img src="assets/images/nexora.png" alt="" />
 						</a>
-						<p>I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI[cite: 24]. I utilize LangGraph to build stateful agentic workflows that leverage checkpoints for crash recovery and human-in-the-loop async processing to ensure output quality. To solve for precision and speed, I engineered RAG pipelines that use semantic chunking and embeddings stored in Pinecone[cite: 18, 31]. I’ve optimized our retrieval by implementing inverted file indexing (IVF) and metadata filtering to keep latency under 500ms even as we scale property and curriculum records[cite: 31, 33]. My evaluation strategy has moved beyond simple zero-shot prompting; I now use LLM-as-a-judge to automate rubric scoring, backed by robust prompt injection defenses to protect our student data[cite: 14, 19].</p>
+						<p>I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I utilize LangGraph to build stateful agentic workflows that leverage checkpoints for crash recovery and human-in-the-loop async processing to ensure output quality. To solve for precision and speed, I engineered RAG pipelines that use semantic chunking and embeddings stored in Pinecone. I’ve optimized our retrieval by implementing inverted file indexing (IVF) and metadata filtering to keep latency under 500ms even as we scale property and curriculum records. My evaluation strategy has moved beyond simple zero-shot prompting; I now use LLM-as-a-judge to automate rubric scoring, backed by robust prompt injection defenses to protect our student data.</p>
 					</article>
 
 					<article>
-						<header>
-							<h2>Conflux systems - MLOps for fraud detection</h2>
-						</header>
-						<a href="#" class="image fit" data-title="Conflux systems - MLOps for fraud detection">
+						<header><h2>conflux systems - MLOps for fraud detection</h2></header>
+						<a href="#" class="image fit" data-title="conflux systems - MLOps for fraud detection">
 							<img src="assets/images/conflux.png" alt="" />
 						</a>
-						<p>I focused on the 'MLOps' side of the house—building end-to-end supervised learning pipelines and ELT processes using Airflow[cite: 54, 58]. I specialized in scaling inference services with Docker and Kubernetes, ensuring that the models I optimized—like XGBoost and LightGBM—were production-ready and monitored for model drift[cite: 47, 55, 59].</p>
+						<p>I focused on the 'MLOps' side of the house—building end-to-end supervised learning pipelines and ELT processes using Airflow. I specialized in scaling inference services with Docker and Kubernetes, ensuring that the models I optimized—like XGBoost and LightGBM—were production-ready and monitored for model drift.</p>
 					</article>
 
 					<article>
-						<header>
-							<h2>SkyGuardAI - AI-Integrated ATC Tracker with Real-Time Deep Learning for Autonomous Airspace Management</h2>
-						</header>
-						<a href="#" class="image fit" data-title="SkyGuardAI - ATC Tracker">
+						<header><h2>skygaurdAI - AI-Integrated ATC Tracker</h2></header>
+						<a href="#" class="image fit" data-title="skygaurdAI - Autonomous Airspace Management">
 							<img src="assets/images/skyguard.png" alt="" />
 						</a>
-						<p>Real-time deep learning system processing more than 100K telemetry events per second across more than 10K flights, enabling sub-500ms conflict prediction with 94% precision[cite: 79]. LSTM and Transformer-based sequence models predict safety-critical conflicts using CBF for more than 2 hours in advance, improving airspace decision intelligence[cite: 80]. Event driven multi-agent reinforcement learning optimization system, improving airspace throughput by 25% and reducing landing delays by 30% while maintaining more than 99% safety compliance[cite: 81].</p>
+						<p>Real-time deep learning system processing more than 100K telemetry events per second across more than 10K flights, enabling sub-500ms conflict prediction with 94% precision. LSTM and Transformer-based sequence models predict safety-critical conflicts using CBF for more than 2 hours in advance. Event driven multi-agent reinforcement learning optimization system, improving airspace throughput by 25% and reducing landing delays by 30% while maintaining more than 99% safety compliance.</p>
 					</article>
 
 					<article>
-						<header>
-							<h2>realtyAI - Neighborhood Comparison Assistant with RAG</h2>
-						</header>
-						<a href="#" class="image fit" data-title="RealtyAI - RAG Assistant">
+						<header><h2>realtyAI- Neighborhood Comparison Assistant with RAG</h2></header>
+						<a href="#" class="image fit" data-title="realtyAI- Neighborhood Assistant">
 							<img src="assets/images/realty.png" alt="" />
 						</a>
-						<p>End-to-end RAG system integrating LLMs, vector databases, and external APIs, improving user decision efficiency by 50% through structured neighborhood comparisons[cite: 74, 75]. Semantic retrieval pipeline using embeddings, metadata filtering, and optimized indexing, achieving sub-500ms query latency across more than 10K property records[cite: 76]. Real-time data pipelines for ingestion, embedding generation, and vector indexing, maintaining 95% retrieval accuracy and high data freshness SLAs[cite: 77].</p>
-					</article>
-
-					<article>
-						<header>
-							<h2>clean tweets - NLP-Based Offensive Tweet Blocker</h2>
-						</header>
-						<a href="#" class="image fit" data-title="Clean Tweets - NLP Blocker">
-							<img src="assets/images/cleantweets.png" alt="" />
-						</a>
-						<p>Real-time NLP classification pipeline using Transformers and scikit-learn, achieving 90% accuracy in offensive content detection across multi-class sentiment categories[cite: 71]. Streaming data ingestion using Twitter API with sub-1s inference latency, enabling real-time moderation and automated content filtering[cite: 72]. Rule-based and model-driven blocking mechanisms, improving platform safety and reducing exposure to harmful content in simulated environments[cite: 73].</p>
+						<p>Real-time NLP classification pipeline using Transformers and scikit-learn, achieving 90% accuracy in offensive content detection[cite: 71]. Streaming data ingestion using Twitter API with sub-1s inference latency, enabling real-time moderation and automated content filtering[cite: 72]. Rule-based and model-driven blocking mechanisms, improving platform safety and reducing exposure to harmful content[cite: 73].</p>
 					</article>
 				</section>
 
 				<section>
-					<form method="post" action="#">
-						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="text" name="email" id="email" />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3"></textarea>
-							</div>
+					<header class="major">
+						<h2>Get In Touch</h2>
+					</header>
+					<div class="contact-wrapper">
+						<div class="contact-form-side">
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field"><label>Name</label><input type="text" /></div>
+									<div class="field"><label>Email</label><input type="text" /></div>
+									<div class="field"><label>Message</label><textarea rows="3"></textarea></div>
+								</div>
+								<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
+							</form>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
-					</form>
+						<div class="contact-info-side">
+							<ul>
+								<li><strong>Email</strong><br /><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a></li>
+								<li><strong>Location</strong><br />I'm currently living in Boston, MA</li>
+								<li><strong>Social</strong>
+									<div class="social-row">
+										<a href="https://linkedin.com/in/keeravani-chekuri/" class="icon brands fa-linkedin"></a>
+										<a href="https://github.com/keeruchek" class="icon brands fa-github"></a>
+										<a href="https://medium.com/@keeruchekuri" class="icon brands fa-medium"></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 			</div>
 
 			<footer id="footer">
-				<section class="split contact">
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a> [cite: 2]</p>
-					</section>
-					<section>
-						<h3>Location</h3>
-						<p>I'm currently living in Boston, MA [cite: 2]</p>
-					</section>
-				</section>
+				<p class="copyright">&copy; Keeravani Chekuri. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 			</footer>
 		</div>
 
