@@ -1,40 +1,120 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Keeravani Chekuri | AI Engineer Portfolio</title>
+		<title>Keeravani Chekuri Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/main.css" /></noscript>
 		<style>
-			/* CSS for the hover effect to show project names on images */
-			.image.fit {
-				position: relative;
-				display: block;
+			/* Fix for Invisible Intro */
+			#intro { opacity: 1 !important; visibility: visible !important; }
+			
+			/* Side-by-Side About Me */
+			.about-container { display: flex; align-items: center; gap: 2rem; text-align: left; }
+			.about-text { flex: 1; }
+			.about-image { flex: 0 0 40%; }
+			.about-image img { width: 100%; border-radius: 8px; }
+
+			/* Side-by-Side Contact Section */
+			.contact-container { display: flex; gap: 4rem; margin-top: 2rem; }
+			.contact-form { flex: 1; }
+			.contact-info { flex: 0 0 35%; }
+			.contact-info ul { list-style: none; padding: 0; }
+			.contact-info li { margin-bottom: 1.5rem; }
+			.social-icons { display: flex; gap: 1rem; font-size: 1.5rem; }
+
+			@media screen and (max-width: 980px) {
+				.about-container, .contact-container { flex-direction: column; }
+				.about-image { order: -1; width: 100%; }
 			}
-			.image.fit img {
-				display: block;
-				width: 100%;
-			}
-			.image.fit::after {
-				content: attr(data-title);
-				position: absolute;
-				top: 0; left: 0; width: 100%; height: 100%;
-				background: rgba(0, 0, 0, 0.7);
-				color: #fff;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				opacity: 0;
-				transition: opacity 0.3s ease;
-				font-weight: bold;
-				font-size: 1.2rem;
-				text-align: center;
-				padding: 10px;
-			}
-			.image.fit:hover::after {
-				opacity: 1;
-			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper" class="fade-in">
+			
+			<div id="intro">
+				<h1>HI THERE !<br /> I'M KEERAVANI</h1>
+				<p>WELCOME TO MY PORTFOLIO. CHECK OUT SOME OF MY PROJECTS HERE AND LEARN MORE ABOUT ME.</p>
+				<ul class="actions">
+					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+				</ul>
+			</div>
+
+			<header id="header">
+				<a href="index.html" class="logo">Portfolio</a>
+			</header>
+
+			<nav id="nav">
+				<ul class="links">
+					<li class="active"><a href="index.html">Portfolio</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+				<article class="post featured">
+					<div class="about-container">
+						<div class="about-text">
+							<header class="major">
+								<h2>About Me</h2>
+							</header>
+							<p>I am an AI/ML Engineer with a career focused on taking complex data systems from '0 to 1' while maintaining high production standards. In my current role as Founding AI Engineer at Nexora AI, I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I previously worked as an ML Engineer where I focused on the 'MLOps' side of the house building end-to-end supervised learning pipelines and ELT processes. By combining this foundational ML infrastructure experience with my current focus on agentic LLM systems, I'm able to build AI products that are not just innovative, but scalable, secure, and cost-effective. [cite: 9, 10, 22, 24]</p>
+						</div>
+						<div class="about-image">
+							<img src="assets/images/image.jpg" alt="Keeravani Chekuri" />
+						</div>
+					</div>
+				</article>
+
+				<section class="posts">
+					<article>
+						<header><h2>NexoraAI - Multi-agent ed-tech platform</h2></header>
+						<p>I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI. I utilize LangGraph to build stateful agentic workflows that leverage checkpoints for crash recovery. [cite: 24, 31]</p>
+					</article>
+					<article>
+						<header><h2>conflux systems - MLOps for fraud detection</h2></header>
+						<p>I focused on the 'MLOps' side of the house—building end-to-end supervised learning pipelines and ELT processes using Airflow. [cite: 43, 54, 58]</p>
+					</article>
+				</section>
+
+				<section>
+					<header class="major">
+						<h2>Get In Touch</h2>
+					</header>
+					<div class="contact-container">
+						<div class="contact-form">
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field"><label>Name</label><input type="text" /></div>
+									<div class="field"><label>Email</label><input type="text" /></div>
+									<div class="field"><label>Message</label><textarea rows="3"></textarea></div>
+								</div>
+								<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
+							</form>
+						</div>
+						<div class="contact-info">
+							<ul>
+								<li><strong>Email:</strong><br /><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a> </li>
+								<li><strong>Location:</strong><br />Boston, MA </li>
+								<li><strong>Social:</strong>
+									<div class="social-icons">
+										<a href="https://linkedin.com/in/keeravani-chekuri/" class="icon brands fa-linkedin"></a>
+										<a href="https://github.com/keeruchek" class="icon brands fa-github"></a>
+										<a href="#" class="icon brands fa-medium"></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>			}
 		</style>
 	</head>
 	<body class="is-preload">
