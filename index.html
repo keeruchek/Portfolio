@@ -1,11 +1,41 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Keeravani Chekuri Portfolio</title>
+		<title>Keeravani Chekuri | AI Engineer Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/main.css" /></noscript>
+		<style>
+			/* CSS for the hover effect to show project names on images */
+			.image.fit {
+				position: relative;
+				display: block;
+			}
+			.image.fit img {
+				display: block;
+				width: 100%;
+			}
+			.image.fit::after {
+				content: attr(data-title);
+				position: absolute;
+				top: 0; left: 0; width: 100%; height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				color: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				font-weight: bold;
+				font-size: 1.2rem;
+				text-align: center;
+				padding: 10px;
+			}
+			.image.fit:hover::after {
+				opacity: 1;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper" class="fade-in">
@@ -36,54 +66,60 @@
 				<article class="post featured">
 					<header class="major">
 						<h2>About Me</h2>
-						<p>I am a Senior AI and Machine Learning Engineer with a proven track record designing and deploying large-scale AI solutions and robust LLM-powered systems[cite: 9]. Currently, I serve as a Founding AI Engineer at Nexora School AI[cite: 22].</p>
+						<p>I am an AI/ML Engineer with a career focused on taking complex data systems from '0 to 1' while maintaining high production standards[cite: 9]. In my current role as Founding AI Engineer at Nexora AI, I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI[cite: 10, 24]. I previously worked as an ML Engineer where I focused on the 'MLOps' side of the house building end-to-end supervised learning pipelines and ELT processes[cite: 54, 58]. By combining this foundational ML infrastructure experience with my current focus on agentic LLM systems, I'm able to build AI products that are not just innovative, but scalable, secure, and cost-effective[cite: 12, 31].</p>
 					</header>
-					<a href="#" class="image main"><img src="assets/images/image.jpg" alt="Keeravani Chekuri" /></a>
+					<a href="#" class="image main"><img src="assets/images/image.JPG" alt="Keeravani Chekuri" /></a>
 				</article>
 
 				<section class="posts">
 					<article>
 						<header>
-							<h2><a href="nexora.html">Nexora School AI</a></h2>
+							<h2>NexoraAI - Multi-agent ed-tech platform</h2>
 						</header>
-						<a href="nexora.html" class="image fit"><img src="assets/images/nexora.png" alt="" /></a>
-						<p>Architected a 0-to-1 AI platform supporting 1,000+ concurrent users, reducing inference costs by 40%[cite: 24, 30].</p>
-						<ul class="actions special">
-							<li><a href="https://nexoraschool.ai" class="button">View Project</a></li>
-						</ul>
+						<a href="#" class="image fit" data-title="NexoraAI - Multi-agent ed-tech platform">
+							<img src="assets/images/nexora.png" alt="" />
+						</a>
+						<p>I architected a multi-tenant platform for over 1,000 concurrent users, specifically focusing on solving the reliability gaps in Generative AI[cite: 24]. I utilize LangGraph to build stateful agentic workflows that leverage checkpoints for crash recovery and human-in-the-loop async processing to ensure output quality. To solve for precision and speed, I engineered RAG pipelines that use semantic chunking and embeddings stored in Pinecone[cite: 18, 31]. I’ve optimized our retrieval by implementing inverted file indexing (IVF) and metadata filtering to keep latency under 500ms even as we scale property and curriculum records[cite: 31, 33]. My evaluation strategy has moved beyond simple zero-shot prompting; I now use LLM-as-a-judge to automate rubric scoring, backed by robust prompt injection defenses to protect our student data[cite: 14, 19].</p>
 					</article>
 
 					<article>
 						<header>
-							<h2><a href="skyguard.html">SkyGuardAI</a></h2>
+							<h2>Conflux systems - MLOps for fraud detection</h2>
 						</header>
-						<a href="skyguard.html" class="image fit"><img src="assets/images/skyguard.png" alt="" /></a>
-						<p>Real-time deep learning system processing 100K+ telemetry events/sec with 94% precision[cite: 79].</p>
-						<ul class="actions special">
-							<li><a href="skyguard.html" class="button">View Project</a></li>
-						</ul>
+						<a href="#" class="image fit" data-title="Conflux systems - MLOps for fraud detection">
+							<img src="assets/images/conflux.png" alt="" />
+						</a>
+						<p>I focused on the 'MLOps' side of the house—building end-to-end supervised learning pipelines and ELT processes using Airflow[cite: 54, 58]. I specialized in scaling inference services with Docker and Kubernetes, ensuring that the models I optimized—like XGBoost and LightGBM—were production-ready and monitored for model drift[cite: 47, 55, 59].</p>
 					</article>
 
 					<article>
 						<header>
-							<h2><a href="realty.html">Realty AI</a></h2>
+							<h2>SkyGuardAI - AI-Integrated ATC Tracker with Real-Time Deep Learning for Autonomous Airspace Management</h2>
 						</header>
-						<a href="realty.html" class="image fit"><img src="assets/images/realty.png" alt="" /></a>
-						<p>Developed an end-to-end RAG system achieving sub-500ms query latency across 10K+ property records[cite: 74, 76].</p>
-						<ul class="actions special">
-							<li><a href="realty.html" class="button">View Project</a></li>
-						</ul>
+						<a href="#" class="image fit" data-title="SkyGuardAI - ATC Tracker">
+							<img src="assets/images/skyguard.png" alt="" />
+						</a>
+						<p>Real-time deep learning system processing more than 100K telemetry events per second across more than 10K flights, enabling sub-500ms conflict prediction with 94% precision[cite: 79]. LSTM and Transformer-based sequence models predict safety-critical conflicts using CBF for more than 2 hours in advance, improving airspace decision intelligence[cite: 80]. Event driven multi-agent reinforcement learning optimization system, improving airspace throughput by 25% and reducing landing delays by 30% while maintaining more than 99% safety compliance[cite: 81].</p>
 					</article>
 
 					<article>
 						<header>
-							<h2><a href="cleantweets.html">CleanTweets</a></h2>
+							<h2>realtyAI - Neighborhood Comparison Assistant with RAG</h2>
 						</header>
-						<a href="cleantweets.html" class="image fit"><img src="assets/images/cleantweets.png" alt="" /></a>
-						<p>Achieved 90% accuracy in offensive content detection using Transformers and streaming APIs[cite: 71, 72].</p>
-						<ul class="actions special">
-							<li><a href="https://cleantweets.streamlit.app" class="button">View Project</a></li>
-						</ul>
+						<a href="#" class="image fit" data-title="RealtyAI - RAG Assistant">
+							<img src="assets/images/realty.png" alt="" />
+						</a>
+						<p>End-to-end RAG system integrating LLMs, vector databases, and external APIs, improving user decision efficiency by 50% through structured neighborhood comparisons[cite: 74, 75]. Semantic retrieval pipeline using embeddings, metadata filtering, and optimized indexing, achieving sub-500ms query latency across more than 10K property records[cite: 76]. Real-time data pipelines for ingestion, embedding generation, and vector indexing, maintaining 95% retrieval accuracy and high data freshness SLAs[cite: 77].</p>
+					</article>
+
+					<article>
+						<header>
+							<h2>clean tweets - NLP-Based Offensive Tweet Blocker</h2>
+						</header>
+						<a href="#" class="image fit" data-title="Clean Tweets - NLP Blocker">
+							<img src="assets/images/cleantweets.png" alt="" />
+						</a>
+						<p>Real-time NLP classification pipeline using Transformers and scikit-learn, achieving 90% accuracy in offensive content detection across multi-class sentiment categories[cite: 71]. Streaming data ingestion using Twitter API with sub-1s inference latency, enabling real-time moderation and automated content filtering[cite: 72]. Rule-based and model-driven blocking mechanisms, improving platform safety and reducing exposure to harmful content in simulated environments[cite: 73].</p>
 					</article>
 				</section>
 
@@ -114,18 +150,11 @@
 				<section class="split contact">
 					<section>
 						<h3>Email</h3>
-						<p><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a> </p>
+						<p><a href="mailto:keeru.chek@gmail.com">keeru.chek@gmail.com</a> [cite: 2]</p>
 					</section>
 					<section>
 						<h3>Location</h3>
-						<p>Boston, MA </p>
-					</section>
-					<section>
-						<h3>Social</h3>
-						<ul class="icons alt">
-							<li><a href="https://www.linkedin.com/in/keeravani-chekuri/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/keeruchek" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
+						<p>I'm currently living in Boston, MA [cite: 2]</p>
 					</section>
 				</section>
 			</footer>
